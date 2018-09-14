@@ -6,4 +6,6 @@ import dev.top.entities.Collegue;
 
 public interface CollegueRepo extends JpaRepository<Collegue, Integer> {
 
+	public Collegue findByName(String name);
+
 }
