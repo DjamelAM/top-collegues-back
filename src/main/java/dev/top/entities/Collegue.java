@@ -15,15 +15,17 @@ public class Collegue {
 
 	private Integer points;
 
+	private String url;
+
 	public Collegue() {
 		super();
 	}
 
-	public Collegue(String name, Integer points) {
+	public Collegue(String name, Integer points, String url) {
 		super();
-
 		this.name = name;
 		this.points = points;
+		this.url = url;
 	}
 
 	public Integer getId() {
@@ -48,6 +50,14 @@ public class Collegue {
 
 	public void setPoints(Integer points) {
 		this.points = points;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 }

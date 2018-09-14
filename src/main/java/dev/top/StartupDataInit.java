@@ -21,10 +21,14 @@ public class StartupDataInit {
 	public void init() {
 		if (this.collegueRepo.count() <= 0) {
 
-			this.collegueRepo.save(new Collegue("Francis", 100));
-			this.collegueRepo.save(new Collegue("Miguel", 200));
-			this.collegueRepo.save(new Collegue("Jeanne", 10));
-			this.collegueRepo.save(new Collegue("Angela", 500));
+			this.collegueRepo.save(new Collegue("Francis", 100,
+					"https://cdn.freebiesupply.com/logos/large/2x/travis-ci-monochrome-logo-png-transparent.png"));
+			this.collegueRepo.save(new Collegue("Miguel", 200,
+					"https://cdn.freebiesupply.com/logos/large/2x/travis-ci-monochrome-logo-png-transparent.png"));
+			this.collegueRepo.save(new Collegue("Jeanne", 10,
+					"https://cdn.freebiesupply.com/logos/large/2x/travis-ci-monochrome-logo-png-transparent.png"));
+			this.collegueRepo.save(new Collegue("Angela", 500,
+					"https://cdn.freebiesupply.com/logos/large/2x/travis-ci-monochrome-logo-png-transparent.png"));
 		}
 
 	}

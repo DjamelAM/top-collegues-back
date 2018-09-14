@@ -1,7 +1,8 @@
 package dev.top.controller;
 
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.context.event.EventListener;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,15 +19,9 @@ public class CollegueController {
 		this.collegueRepo = collegueRepo;
 	}
 
-	@EventListener(ContextRefreshedEvent.class)
-	public void init() {
-
-		if (this.collegueRepo.count() <= 0) {
-			this.collegueRepo.save(new Collegue("Francis", 100));
-			this.collegueRepo.save(new Collegue("Miguel", 200));
-			this.collegueRepo.save(new Collegue("Jeanne", 10));
-			this.collegueRepo.save(new Collegue("Angela", 500));
-		}
+	@GetMapping
+	public List<Collegue> findAll() {
+		return this.collegueRepo.findAll();
 
 	}
 }
