@@ -4,27 +4,27 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-import dev.top.entities.Version;
-import dev.top.repos.VersionRepo;
+import dev.top.entities.Collegue;
+import dev.top.repos.CollegueRepo;
 
 @Component
 public class StartupDataInit {
 
-	private VersionRepo versionRepo;
+	CollegueRepo collegueRepo;
 
-	public StartupDataInit(VersionRepo versionRepo) {
+	public StartupDataInit(CollegueRepo collegueRepo) {
 		super();
-		this.versionRepo = versionRepo;
+		this.collegueRepo = collegueRepo;
 	}
 
 	@EventListener(ContextRefreshedEvent.class)
 	public void init() {
+		if (this.collegueRepo.count() <= 0) {
 
-		if (this.versionRepo.count() <= 0) {
-			this.versionRepo.save(new Version("v1"));
-			this.versionRepo.save(new Version("v2"));
-			this.versionRepo.save(new Version("v3"));
-			this.versionRepo.save(new Version("v4"));
+			this.collegueRepo.save(new Collegue("Francis", 100));
+			this.collegueRepo.save(new Collegue("Miguel", 200));
+			this.collegueRepo.save(new Collegue("Jeanne", 10));
+			this.collegueRepo.save(new Collegue("Angela", 500));
 		}
 
 	}
