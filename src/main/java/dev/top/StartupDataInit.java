@@ -25,9 +25,9 @@ public class StartupDataInit {
 					"https://cdn.freebiesupply.com/logos/large/2x/travis-ci-monochrome-logo-png-transparent.png"));
 			this.collegueRepo.save(new Collegue("Miguel", 200,
 					"https://cdn.freebiesupply.com/logos/large/2x/travis-ci-monochrome-logo-png-transparent.png"));
-			this.collegueRepo.save(new Collegue("Jeanne", 10,
+			this.collegueRepo.save(new Collegue("Jeanne", -1000,
 					"https://cdn.freebiesupply.com/logos/large/2x/travis-ci-monochrome-logo-png-transparent.png"));
-			this.collegueRepo.save(new Collegue("Angela", 500,
+			this.collegueRepo.save(new Collegue("Angela", 990,
 					"https://cdn.freebiesupply.com/logos/large/2x/travis-ci-monochrome-logo-png-transparent.png"));
 		}
 
