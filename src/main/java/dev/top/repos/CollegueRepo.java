@@ -10,4 +10,10 @@ public interface CollegueRepo extends JpaRepository<Collegue, Integer> {
 
 	Optional<Collegue> findByName(String name);
 
+	boolean existsByName(String name);
+
+	boolean existsByPseudo(String pseudo);
+
+	Optional<Collegue> findByPseudo(String pseudo);
+
 }

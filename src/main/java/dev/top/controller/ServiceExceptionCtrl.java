@@ -9,6 +9,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 import dev.top.dto.ErrorCode;
 import dev.top.dto.ErrorDto;
+import dev.top.exception.InvalidMatriculeException;
 import dev.top.exception.InvalidPseudoException;
 
 @ControllerAdvice
@@ -29,6 +30,11 @@ public class ServiceExceptionCtrl {
 	public ResponseEntity<?> invalidFormatException() {
 		return ResponseEntity.badRequest().body(new ErrorDto(ErrorCode.JSON_PARSE,
 				"Erreur dans la conversion Java <> JSON (vérifier vos paramètres d'entrée)"));
+	}
+
+	@ExceptionHandler(InvalidMatriculeException.class)
+	public ResponseEntity<?> matriculeException() {
+		return ResponseEntity.badRequest().body(new ErrorDto(ErrorCode.MATRICULE_INVALID, "Le matricule n'existe pas"));
 	}
 
 }
