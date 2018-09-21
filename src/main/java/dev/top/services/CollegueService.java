@@ -101,6 +101,8 @@ public class CollegueService {
 	public String addCollegue(Collegue collegue) {
 		if (this.collRepo.existsByName(collegue.getName())) {
 			return "Collegue déjà existant";
+		} else if (this.collRepo.existsByPseudo(collegue.getPseudo())) {
+			return "Pseudo déjà existant";
 		} else {
 			this.collRepo.save(collegue);
 			return "Collegue Enregistré";

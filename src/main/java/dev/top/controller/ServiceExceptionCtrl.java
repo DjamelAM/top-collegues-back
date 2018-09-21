@@ -11,6 +11,8 @@ import dev.top.dto.ErrorCode;
 import dev.top.dto.ErrorDto;
 import dev.top.exception.InvalidMatriculeException;
 import dev.top.exception.InvalidPseudoException;
+import dev.top.exception.InvalidVoteIdException;
+import dev.top.exception.NoVoteException;
 
 @ControllerAdvice
 public class ServiceExceptionCtrl {
@@ -37,4 +39,14 @@ public class ServiceExceptionCtrl {
 		return ResponseEntity.badRequest().body(new ErrorDto(ErrorCode.MATRICULE_INVALID, "Le matricule n'existe pas"));
 	}
 
+	@ExceptionHandler(InvalidVoteIdException.class)
+	public ResponseEntity<?> voteIdException() {
+		return ResponseEntity.badRequest().body(new ErrorDto(ErrorCode.ID_VOTE_INVALID, "Le vote n'existe pas"));
+	}
+
+	@ExceptionHandler(NoVoteException.class)
+	public ResponseEntity<?> noVoteException() {
+		return ResponseEntity.badRequest()
+				.body(new ErrorDto(ErrorCode.AUCUN_VOTE, "Il n'y a pas de votes dans la bdd"));
+	}
 }
